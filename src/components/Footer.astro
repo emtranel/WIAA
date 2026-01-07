@@ -1,6 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
-
 <footer class="app-footer">
   <div class="footer-container">
     <div class="footer-info">
@@ -8,14 +8,13 @@
       <p>Inspiring future leaders in science</p>
     </div>
     <nav class="footer-links">
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-      <a href="/feedback">Feedback</a>
-      <a href="/privacy">Privacy & Terms</a>
+      <a href={`${base}about`}>About</a>
+      <a href={`${base}contact`}>Contact</a>
+      <a href={`${base}feedback`}>Feedback</a>
+      <a href={`${base}privacy`}>Privacy & Terms</a>
     </nav>
   </div>
 </footer>
-
 <style>
   .app-footer {
     border-top: 2px solid var(--border-gold);
@@ -23,7 +22,6 @@
     padding: 40px 20px;
     margin-top: auto;
   }
-
   .footer-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -33,42 +31,35 @@
     flex-wrap: wrap;
     gap: 20px;
   }
-
   .footer-info h4 {
     font-weight: 600;
     color: var(--isu-red);
     margin-bottom: 5px;
   }
-
   .footer-info p {
     font-size: 0.95em;
     color: var(--text-light);
     margin: 0;
   }
-
   .footer-links {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
   }
-
   .footer-links a {
     color: var(--isu-red);
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s;
   }
-
   .footer-links a:hover {
     color: var(--isu-gold);
   }
-
   @media (max-width: 768px) {
     .footer-container {
       flex-direction: column;
       text-align: center;
     }
-
     .footer-links {
       justify-content: center;
     }

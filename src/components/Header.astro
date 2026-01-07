@@ -1,22 +1,22 @@
 ---
+const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Drone program', href: '/drones' },
-  { label: 'Rover program', href: '/rovers' },
-  { label: 'Outreach', href: '/outreach' }
+  { label: 'Home', href: `${base}` },
+  { label: 'Drone program', href: `${base}drones` },
+  { label: 'Rover program', href: `${base}rovers` },
+  { label: 'Outreach', href: `${base}outreach` }
 ];
 
 function isActive(href: string) {
-  if (href === '/') return currentPath === '/';
+  if (href === base) return currentPath === base || currentPath === `${base}/`;
   return currentPath.startsWith(href);
 }
 ---
-
 <header class="navbar">
   <div class="nav-container">
-    <a href="/" class="logo-link">
+    <a href={base} class="logo-link">
       <div class="logo-icon">WIAA</div>
       <span class="logo-text">Workforce in Agriculture and AI</span>
     </a>
@@ -35,7 +35,6 @@ function isActive(href: string) {
     </button>
   </div>
 </header>
-
 <style>
   .navbar {
     height: 70px;
@@ -47,7 +46,6 @@ function isActive(href: string) {
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(196, 30, 58, 0.08);
   }
-
   .nav-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -57,7 +55,6 @@ function isActive(href: string) {
     justify-content: space-between;
     padding: 0 30px;
   }
-
   .logo-link {
     display: flex;
     align-items: center;
@@ -66,7 +63,6 @@ function isActive(href: string) {
     font-size: 1.3em;
     text-decoration: none;
   }
-
   .logo-icon {
     background: linear-gradient(135deg, var(--isu-red), var(--isu-dark-red));
     color: white;
@@ -75,16 +71,13 @@ function isActive(href: string) {
     margin-right: 12px;
     font-weight: 700;
   }
-
   .logo-text {
     display: none;
   }
-
   .desktop-nav {
     display: flex;
     gap: 8px;
   }
-
   .desktop-nav a {
     padding: 10px 16px;
     color: var(--text-medium);
@@ -93,18 +86,15 @@ function isActive(href: string) {
     border-radius: 4px;
     text-decoration: none;
   }
-
   .desktop-nav a:hover {
     color: var(--isu-red);
     background: rgba(196, 30, 58, 0.05);
   }
-
   .desktop-nav a.active {
     color: var(--isu-red);
     border-bottom: 3px solid var(--isu-gold);
     font-weight: 600;
   }
-
   .mobile-menu-btn {
     display: none;
     background: none;
@@ -113,13 +103,11 @@ function isActive(href: string) {
     color: var(--isu-red);
     cursor: pointer;
   }
-
   @media (min-width: 768px) {
     .logo-text {
       display: inline;
     }
   }
-
   @media (max-width: 768px) {
     .desktop-nav {
       display: none;
@@ -130,7 +118,6 @@ function isActive(href: string) {
     }
   }
 </style>
-
 <script>
   // Mobile menu toggle functionality
   const menuBtn = document.querySelector('.mobile-menu-btn');
