@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 interface Props {
   currentChapter: number;
   currentLesson?: number;
@@ -7,75 +9,75 @@ interface Props {
 const { currentChapter, currentLesson } = Astro.props;
 
 const chapters = [
-  { 
-    num: 1, 
+  {
+    num: 1,
     title: "Learning goals",
     lessons: [
-      { num: 1, title: "Learning objectives", href: "/drones/01-learning-goals/lesson-1" },
-      { num: 2, title: "Next generation science standards", href: "/drones/01-learning-goals/lesson-2" }
+      { num: 1, title: "Learning objectives", href: base + "/drones/01-learning-goals/lesson-1" },
+      { num: 2, title: "Next generation science standards", href: base + "/drones/01-learning-goals/lesson-2" }
     ]
   },
-  { 
-    num: 2, 
+  {
+    num: 2,
     title: "Introduction to drones",
     lessons: [
-      { num: 1, title: "What is a Drone?", href: "/drones/02-introduction/lesson-1" },
-      { num: 2, title: "Agricultural Applications", href: "/drones/02-introduction/lesson-2" },
-      { num: 3, title: "Concept review", href: "/drones/02-introduction/review" }
+      { num: 1, title: "What is a Drone?", href: base + "/drones/02-introduction/lesson-1" },
+      { num: 2, title: "Agricultural Applications", href: base + "/drones/02-introduction/lesson-2" },
+      { num: 3, title: "Concept review", href: base + "/drones/02-introduction/review" }
     ]
   },
-  { 
-    num: 3, 
+  {
+    num: 3,
     title: "Drone parts & types",
     lessons: [
-      { num: 1, title: "Main Components", href: "/drones/03-parts-types/lesson-1" },
-      { num: 2, title: "Types of Agricultural Drones", href: "/drones/03-parts-types/lesson-2" },
-      { num: 3, title: "Concept review", href: "/drones/03-parts-types/review" }
+      { num: 1, title: "Main Components", href: base + "/drones/03-parts-types/lesson-1" },
+      { num: 2, title: "Types of Agricultural Drones", href: base + "/drones/03-parts-types/lesson-2" },
+      { num: 3, title: "Concept review", href: base + "/drones/03-parts-types/review" }
     ]
   },
-  { 
-    num: 4, 
+  {
+    num: 4,
     title: "Sensors & data collection",
     lessons: [
-      { num: 1, title: "Types of agricultural sensors", href: "/drones/04-sensors/lesson-1" },
-      { num: 2, title: "Reflectance and plant health", href: "/drones/04-sensors/lesson-2" },
-      { num: 3, title: "Vegetation indices", href: "/drones/04-sensors/lesson-3" },
-      { num: 4, title: "Concept review", href: "/drones/04-sensors/review" }
+      { num: 1, title: "Types of agricultural sensors", href: base + "/drones/04-sensors/lesson-1" },
+      { num: 2, title: "Reflectance and plant health", href: base + "/drones/04-sensors/lesson-2" },
+      { num: 3, title: "Vegetation indices", href: base + "/drones/04-sensors/lesson-3" },
+      { num: 4, title: "Concept review", href: base + "/drones/04-sensors/review" }
     ]
   },
-  { 
-    num: 5, 
+  {
+    num: 5,
     title: "AI in agriculture",
     lessons: [
-      { num: 1, title: "What is AI?", href: "/drones/05-ai-agriculture/lesson-1" },
-      { num: 2, title: "AI tools in agriculture", href: "/drones/05-ai-agriculture/lesson-2" },
-      { num: 3, title: "How AI models are developed", href: "/drones/05-ai-agriculture/lesson-3" },
-      { num: 4, title: "Concept review", href: "/drones/05-ai-agriculture/review" }
+      { num: 1, title: "What is AI?", href: base + "/drones/05-ai-agriculture/lesson-1" },
+      { num: 2, title: "AI tools in agriculture", href: base + "/drones/05-ai-agriculture/lesson-2" },
+      { num: 3, title: "How AI models are developed", href: base + "/drones/05-ai-agriculture/lesson-3" },
+      { num: 4, title: "Concept review", href: base + "/drones/05-ai-agriculture/review" }
     ]
   },
-  { 
-    num: 6, 
+  {
+    num: 6,
     title: "FAA Part 107 & safety",
     lessons: [
-      { num: 1, title: "FAA Basics & Requirements", href: "/drones/06-faa-safety/lesson-1" },
-      { num: 2, title: "Core flight rules & regulations", href: "/drones/06-faa-safety/lesson-2" },
-      { num: 3, title: "Concept review", href: "/drones/06-faa-safety/review" }
+      { num: 1, title: "FAA Basics & Requirements", href: base + "/drones/06-faa-safety/lesson-1" },
+      { num: 2, title: "Core flight rules & regulations", href: base + "/drones/06-faa-safety/lesson-2" },
+      { num: 3, title: "Concept review", href: base + "/drones/06-faa-safety/review" }
     ]
   },
-  { 
-    num: 7, 
+  {
+    num: 7,
     title: "Careers in drones & AI",
     lessons: [
-      { num: 1, title: "Why these skills matter", href: "/drones/07-careers/lesson-1" },
-      { num: 2, title: "Skills you can build now", href: "/drones/07-careers/lesson-2" },
-      { num: 3, title: "Concept review", href: "/drones/07-careers/review" }
+      { num: 1, title: "Why these skills matter", href: base + "/drones/07-careers/lesson-1" },
+      { num: 2, title: "Skills you can build now", href: base + "/drones/07-careers/lesson-2" },
+      { num: 3, title: "Concept review", href: base + "/drones/07-careers/review" }
     ]
   },
-  { 
-    num: 8, 
+  {
+    num: 8,
     title: "References",
     lessons: [
-      { num: 1, title: "References", href: "/drones/08-references/lesson-1" }
+      { num: 1, title: "References", href: base + "/drones/08-references/lesson-1" }
     ]
   }
 ];
@@ -86,8 +88,8 @@ const chapters = [
   <nav class="chapter-nav">
     {chapters.map(chapter => (
       <div class="chapter-section">
-        <a 
-          href={chapter.lessons[0].href} 
+        <a
+          href={chapter.lessons[0].href}
           class={`chapter-btn ${currentChapter === chapter.num ? 'active' : ''}`}
         >
           {chapter.title}
@@ -95,7 +97,7 @@ const chapters = [
         {currentChapter === chapter.num && (
           <div class="lesson-list">
             {chapter.lessons.map(lesson => (
-              <a 
+              <a
                 href={lesson.href}
                 class={`lesson-btn ${currentLesson === lesson.num ? 'active' : ''}`}
               >
@@ -191,4 +193,3 @@ const chapters = [
     font-weight: 600;
   }
 </style>
-

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Drone Program">
@@ -34,8 +35,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <div class="tabs-container">
       <div class="tab-buttons">
-        <a href="/drones/01-learning-goals/lesson-1" class="tab-btn active">Learning Module</a>
-        <a href="/drones/instructor" class="tab-btn">Instructor Resources</a>
+        <a href={base + '/drones/01-learning-goals/lesson-1'} class="tab-btn active">Learning Module</a>
+        <a href={base + '/drones/instructor'} class="tab-btn">Instructor Resources</a>
       </div>
       
       <div class="tab-content">
@@ -65,7 +66,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
         
         <div class="cta-section">
-          <a href="/drones/01-learning-goals/lesson-1" class="btn btn-primary btn-large">Start Learning</a>
+          <a href={base + '/drones/01-learning-goals/lesson-1'} class="btn btn-primary btn-large">Start Learning</a>
         </div>
       </div>
     </div>

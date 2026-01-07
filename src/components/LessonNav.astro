@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 interface NavLink {
   href?: string;
   label: string;
@@ -11,12 +13,19 @@ interface Props {
 }
 
 const { prev, next, progress } = Astro.props;
+
+// Add base to href if it exists and doesn't already include it
+const addBase = (href?: string) => {
+  if (!href) return undefined;
+  if (href.startsWith('http') || href.startsWith(base)) return href;
+  return base + href;
+};
 ---
 
 <nav class="lesson-nav">
   <div class="nav-btn-container">
     {prev && prev.href ? (
-      <a href={prev.href} class="btn nav-btn prev">{prev.label}</a>
+      <a href={addBase(prev.href)} class="btn nav-btn prev">{prev.label}</a>
     ) : (
       <div></div>
     )}
@@ -28,7 +37,7 @@ const { prev, next, progress } = Astro.props;
   
   <div class="nav-btn-container">
     {next && next.href ? (
-      <a href={next.href} class="btn nav-btn next">{next.label}</a>
+      <a href={addBase(next.href)} class="btn nav-btn next">{next.label}</a>
     ) : (
       <div></div>
     )}
@@ -44,16 +53,16 @@ const { prev, next, progress } = Astro.props;
     padding-top: 20px;
     border-top: 2px solid var(--isu-gold);
   }
-
+  
   .nav-btn-container {
     flex: 1;
   }
-
+  
   .nav-btn-container:last-child {
     display: flex;
     justify-content: flex-end;
   }
-
+  
   .nav-btn {
     padding: 12px 24px;
     border-radius: 6px;
@@ -61,46 +70,46 @@ const { prev, next, progress } = Astro.props;
     transition: all 0.2s;
     display: inline-block;
   }
-
+  
   .nav-btn.prev {
     background: #999;
     color: white;
   }
-
+  
   .nav-btn.prev:hover {
     background: #777;
   }
-
+  
   .nav-btn.next {
     background: var(--isu-red);
     color: white;
   }
-
+  
   .nav-btn.next:hover {
     background: var(--isu-dark-red);
   }
-
+  
   .progress-indicator {
     flex: 1;
     text-align: center;
     color: var(--text-light);
     font-weight: 500;
   }
-
+  
   @media (max-width: 768px) {
     .lesson-nav {
       flex-direction: column;
       gap: 15px;
     }
-
+    
     .nav-btn-container {
       width: 100%;
     }
-
+    
     .nav-btn-container:last-child {
       justify-content: flex-start;
     }
-
+    
     .progress-indicator {
       order: -1;
       margin-bottom: 10px;

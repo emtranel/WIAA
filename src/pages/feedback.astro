@@ -6,12 +6,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="container page-content">
     <div class="content-box">
       <h1>Share Your Feedback</h1>
+      
+      <p class="intro">Your feedback helps us improve our programs and create better learning experiences. Whether you're a student, educator, parent, or community partner, we want to hear from you!</p>
 
       <div class="feedback-categories">
         <div class="category-card">
           <i class="fas fa-graduation-cap"></i>
           <h3>Students</h3>
-          <p>Tell us about your experience with our outreach programs</p>
+          <p>Tell us about your experience with our drone and rover programs</p>
         </div>
         <div class="category-card">
           <i class="fas fa-chalkboard-teacher"></i>
@@ -45,10 +47,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <select id="role" name="role" required>
               <option value="">Select your role...</option>
               <option value="student">Student</option>
-              <option value="teacher">Teacher/Educator/Instructor</option>
+              <option value="teacher">Teacher/Educator</option>
               <option value="parent">Parent</option>
               <option value="administrator">School Administrator</option>
-              <option value="community">Student Leader</option>
+              <option value="community">Community Partner</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -111,7 +113,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="info-box">
-        <p><strong>Thank you for helping us improve materials for future leaders.</strong></p>
+        <h3>📊 Your Feedback Matters</h3>
+        <p>All feedback is reviewed by our team and used to:</p>
+        <ul>
+          <li>Improve curriculum and activities</li>
+          <li>Enhance student engagement</li>
+          <li>Develop new resources</li>
+          <li>Better serve our community</li>
+        </ul>
+        <p><strong>Thank you for helping us grow!</strong></p>
       </div>
     </div>
   </div>
