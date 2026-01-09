@@ -4,8 +4,6 @@ chapter: 1
 lesson: 2
 ---
 
-## Next Generation Science Standards
-
 This curriculum aligns with the following NGSS standards:
 
 1. **HS-PS3-1:** Energy in a system

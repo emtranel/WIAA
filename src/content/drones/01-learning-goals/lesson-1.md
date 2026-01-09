@@ -4,8 +4,6 @@ chapter: 1
 lesson: 1
 ---
 
-## Learning Objectives
-
 1. Understand UAV and UAS components and their functions
 2. Identify agricultural applications and limitations of drone technology
 3. Analyze sensor types and data collection methods

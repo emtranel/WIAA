@@ -4,9 +4,9 @@ chapter: 5
 lesson: 1
 ---
 
-## Have You Used AI Before? How Can AI Be Helpful?
+Have You Used AI Before? How Can AI Be Helpful?
 
-AI (Artificial Intelligence) is technology that can:
+## AI (Artificial Intelligence) is technology that can:
 
 - Recognize patterns in data
 - Learn from examples
@@ -21,7 +21,7 @@ AI (Artificial Intelligence) is technology that can:
 
 AI can help farmers to identify the type of stress, determine the level of stress, the severity of the stress, and predict how the stress will act in the future.
 
-## There Are Different Types of AI
+## Types of AI
 
 - **Machine Learning:** AI that learns patterns from data
 - **Deep Learning:** AI that uses neural networks similar to human brains
@@ -29,7 +29,6 @@ AI can help farmers to identify the type of stress, determine the level of stres
 
 ## Learning Activities
 
-- Watch: Precision Weed Mapping with Drone Imagery and AI for Targeted Sprayer Applications
-- Video: https://youtu.be/fCdg2S33zLc
+- Watch: Precision Weed Mapping with Drone Imagery and AI for Targeted Sprayer Applications. Access at: https://youtu.be/fCdg2S33zLc
 
 ![AI in Agriculture](/WIAA/images/AI_in_ag.jpg)

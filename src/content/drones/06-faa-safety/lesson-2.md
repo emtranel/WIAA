@@ -10,7 +10,7 @@ When operating a drone, many regulations must be met to ensure safety of the ope
 
 ### 1. Keep Drone in Sight
 
-You need to be able to see the drone the whole time when you are flying. Not too far away, or not on the other side of large objects.
+You need to be able to see the drone the whole time when you are flying. Not too far away, and not on the other side of large objects.
 
 ### 2. Give Way to Planes
 

@@ -4,9 +4,7 @@ chapter: 5
 lesson: 2
 ---
 
-## How Does AI Work That Allows It to Help Us?
-
-Special AI tools can be applied to specific tasks.
+Different AI tools can be applied to specific tasks in agriculture.
 
 ## Vision Models
 

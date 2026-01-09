@@ -4,8 +4,6 @@ chapter: 4
 lesson: 3
 ---
 
-## What Do We Do With These Values?
-
 NDVI is one of many vegetation index formulas that use specific reflectance values that can be used to determine plant health. NDVI stands for: **Normalized Difference Vegetation Index**.
 
 ## NDVI Formula

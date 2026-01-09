@@ -4,7 +4,7 @@ chapter: 6
 lesson: 1
 ---
 
-## Imagine If Everyone Could Fly a Drone Anywhere, Anytime, Without Any Rules. What Could Go Wrong?
+Imagine If Everyone Could Fly a Drone Anywhere, Anytime, Without Any Rules. What Could Go Wrong?
 
 The FAA exists to keep aircraft in the United States safe by enforcing rules for pilots and aircraft. The **Part 107 license** is a certification program under the FAA that specializes in the operation of **small unmanned aerial systems** that are **less than 55 pounds** in weight and used for **commercial purposes**.
 

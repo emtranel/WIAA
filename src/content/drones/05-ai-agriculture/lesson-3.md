@@ -3,10 +3,7 @@ title: "How AI Models Are Developed"
 chapter: 5
 lesson: 3
 ---
-
-## AI Has Multiple Levels, But How Does It Work?
-
-AI requires a process of training the computer to understand what we know, so it can analyze data quickly.
+AI requires a process of training the computer to understand what we know, so it can analyze data quickly and be used to help users in real-world applications.
 
 ## The AI Development Process
 
@@ -14,7 +11,7 @@ AI requires a process of training the computer to understand what we know, so it
 2. **Data is labeled by humans** - Ensure the data is accurate through human expertise
 3. **The model is trained** - Use the labels to learn the meaning of the data
 4. **The model is tested** - Ensure the model is performing accurately
-5. **The model is deployed** - Used in the field for real-world applications
+5. **The model is deployed** - Use in the field for real-world applications
 
 Throughout this process, AI developers may learn new things about the data, methods used in training, or new technology, so the process forms a development cycle for continual improvements.
 

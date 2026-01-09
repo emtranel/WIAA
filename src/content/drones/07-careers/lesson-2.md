@@ -4,7 +4,7 @@ chapter: 7
 lesson: 2
 ---
 
-## If You Want to Prepare for Your Career, You Can Start Now
+## Build your skills starting now
 
 ### Fundamental Skills
 
@@ -38,7 +38,6 @@ lesson: 2
 
 ## Learning Activities
 
-- Watch: Cyber-Agricultural Systems in Crop Production and Breeding
-- Video: https://youtu.be/dJrvekSAHC8
+- Watch: Cyber-Agricultural Systems in Crop Production and Breeding. Access at: https://youtu.be/dJrvekSAHC8
 
 ![Building Skills](/WIAA/images/skills.jpg)
