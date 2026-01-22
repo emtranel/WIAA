@@ -34,16 +34,16 @@ body {
   line-height: 1.5;
 }
 
-/* Headings */
+/* Headings - responsive sizing */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: -0.3px;
   color: var(--isu-red);
 }
 
-h1 { font-size: 2.5em; }
-h2 { font-size: 1.9em; }
-h3 { font-size: 1.3em; }
+h1 { font-size: 1.75em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.15em; }
 h4 { font-size: 1.05em; }
 
 /* Paragraphs */
@@ -72,7 +72,7 @@ main {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
   width: 100%;
 }
 
@@ -108,29 +108,28 @@ main {
 
 /* Learning module specific styles */
 .learning-grid {
-  display: grid !important;
-  grid-template-columns: 250px 1fr !important;
-  gap: 24px !important;
-  align-items: start !important;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
   margin-top: 30px;
 }
 
-/* Add this new rule */
 .learning-grid > .sidebar {
-  grid-column: 1;  /* Force sidebar to first column */
+  grid-column: 1;
 }
 
 .learning-grid > .content-area {
-  grid-column: 2;  /* Force content to second column */
+  grid-column: 1;
 }
 
 .content-area {
   background: white;
-  padding: 40px;
+  padding: 24px;
   border-radius: 8px;
   border: 1px solid var(--border-light);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  min-height: 650px;
+  min-height: auto;
 }
 
 /* Content header */
@@ -142,12 +141,12 @@ main {
 
 .chapter-label {
   color: var(--text-light);
-  font-size: 0.9em;
+  font-size: 0.85em;
   margin-bottom: 8px;
 }
 
 .content-header h1 {
-  font-size: 2em;
+  font-size: 1.6em;
   color: var(--isu-red);
   margin: 0;
 }
@@ -159,7 +158,7 @@ main {
 
 .lesson-content h2 {
   color: var(--text-dark);
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin: 25px 0 15px;
   border-left: 4px solid var(--isu-red);
   padding-left: 15px;
@@ -185,21 +184,16 @@ main {
   color: var(--isu-red);
 }
 
+/* Images - fully responsive */
 .lesson-content img {
-  max-width: 200px;  /* Try 400px, or even 300px if still too big */
-  width: 50%;
+  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 8px;
   margin: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: block;
 }
-
-/* Responsive */
-@media (max-width: 968px) {
-  .learning-grid {
-    grid-template-columns: 1fr;
-  }
 
 /* Sidebar styling */
 .sidebar {
@@ -213,7 +207,7 @@ main {
 .sidebar h3 {
   margin-bottom: 15px;
   color: var(--isu-red);
-  font-size: 1.1em;
+  font-size: 1em;
   border-bottom: 2px solid var(--isu-gold);
   padding-bottom: 10px;
 }
@@ -236,7 +230,7 @@ main {
   cursor: pointer;
   transition: all 0.2s;
   text-decoration: none;
-  font-size: 0.95em;
+  font-size: 0.9em;
 }
 
 .chapter-btn:hover {
@@ -269,7 +263,7 @@ main {
   cursor: pointer;
   transition: all 0.2s;
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 .lesson-btn:hover {
@@ -286,4 +280,51 @@ main {
   font-weight: 600;
 }
 
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.6em; }
+  h3 { font-size: 1.2em; }
+
+  .content-area {
+    padding: 30px;
+    min-height: 650px;
+  }
+
+  .content-header h1 {
+    font-size: 1.8em;
+  }
+
+  .lesson-content h2 {
+    font-size: 1.3em;
+  }
+}
+
+/* Desktop screens */
+@media (min-width: 969px) {
+  h1 { font-size: 2.5em; }
+  h2 { font-size: 1.9em; }
+  h3 { font-size: 1.3em; }
+
+  .learning-grid {
+    grid-template-columns: 250px 1fr;
+  }
+
+  .learning-grid > .sidebar {
+    grid-column: 1;
+  }
+
+  .learning-grid > .content-area {
+    grid-column: 2;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+  }
 }

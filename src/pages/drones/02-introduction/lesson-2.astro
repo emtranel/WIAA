@@ -30,12 +30,78 @@ const { title, chapter, lesson } = content.frontmatter;
   </div>
 
 </BaseLayout>
-<style is:global>
-  .lesson-content img {
-    max-width: 800px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 20px auto !important;
+<style>
+  .lesson-container {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  .lesson-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .content-area {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    min-height: auto;
+  }
+
+  .content-header {
+    border-bottom: 2px solid var(--isu-gold);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+
+  .chapter-label {
+    color: var(--text-light);
+    font-size: 0.8em;
+    margin-bottom: 6px;
+  }
+
+  .content-header h1 {
+    font-size: 1.4em;
+    color: var(--isu-red);
+    margin: 0;
+  }
+
+  /* Tablet screens */
+  @media (min-width: 768px) {
+    .lesson-container {
+      padding: 0 20px;
+    }
+
+    .content-area {
+      padding: 28px;
+    }
+
+    .content-header h1 {
+      font-size: 1.7em;
+    }
+  }
+
+  /* Desktop screens */
+  @media (min-width: 969px) {
+    .lesson-layout {
+      grid-template-columns: 250px 1fr;
+      gap: 24px;
+    }
+
+    .content-area {
+      padding: 40px;
+      min-height: 650px;
+    }
+
+    .content-header h1 {
+      font-size: 2em;
+    }
   }
 </style>
 

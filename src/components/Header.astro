@@ -1,40 +1,27 @@
 ---
-const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // Remove trailing slash if present
 const currentPath = Astro.url.pathname;
-
-const navItems = [
-  { label: 'Home', href: base + '/' },
-  { label: 'Drone program', href: base + '/drones' },
-  { label: 'Rover program', href: base + '/rovers' },
-  { label: 'Outreach', href: base + '/outreach' }
-];
-
-function isActive(href: string) {
-  if (href === base + '/') return currentPath === base + '/' || currentPath === base;
-  return currentPath.startsWith(href);
-}
 ---
+
 <header class="navbar">
   <div class="nav-container">
-    <a href={base + '/'} class="logo-link">
+    <a href="/" class="logo-link">
       <div class="logo-icon">WIAA</div>
       <span class="logo-text">Workforce in Agriculture and AI</span>
     </a>
-    <nav class="desktop-nav">
-      {navItems.map(item => (
-        <a 
-          href={item.href} 
-          class={isActive(item.href) ? 'active' : ''}
-        >
-          {item.label}
-        </a>
-      ))}
-    </nav>
-    <button class="mobile-menu-btn" aria-label="Toggle menu">
+    
+    <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobile-menu-btn">
       <i class="fas fa-bars"></i>
     </button>
+    
+    <nav class="desktop-nav" id="nav-menu">
+      <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
+      <a href="/drones" class={currentPath.startsWith('/drones') ? 'active' : ''}>Drone program</a>
+      <a href="/rovers" class={currentPath.startsWith('/rovers') ? 'active' : ''}>Rover program</a>
+      <a href="/outreach" class={currentPath === '/outreach' ? 'active' : ''}>Outreach</a>
+    </nav>
   </div>
 </header>
+
 <style>
   .navbar {
     height: 70px;
@@ -46,6 +33,7 @@ function isActive(href: string) {
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(196, 30, 58, 0.08);
   }
+
   .nav-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -55,6 +43,7 @@ function isActive(href: string) {
     justify-content: space-between;
     padding: 0 30px;
   }
+
   .logo-link {
     display: flex;
     align-items: center;
@@ -62,7 +51,13 @@ function isActive(href: string) {
     font-weight: 700;
     font-size: 1.3em;
     text-decoration: none;
+    transition: color 0.2s;
   }
+
+  .logo-link:hover {
+    color: var(--isu-dark-red);
+  }
+
   .logo-icon {
     background: linear-gradient(135deg, var(--isu-red), var(--isu-dark-red));
     color: white;
@@ -71,30 +66,7 @@ function isActive(href: string) {
     margin-right: 12px;
     font-weight: 700;
   }
-  .logo-text {
-    display: none;
-  }
-  .desktop-nav {
-    display: flex;
-    gap: 8px;
-  }
-  .desktop-nav a {
-    padding: 10px 16px;
-    color: var(--text-medium);
-    font-weight: 500;
-    transition: 0.3s;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-  .desktop-nav a:hover {
-    color: var(--isu-red);
-    background: rgba(196, 30, 58, 0.05);
-  }
-  .desktop-nav a.active {
-    color: var(--isu-red);
-    border-bottom: 3px solid var(--isu-gold);
-    font-weight: 600;
-  }
+
   .mobile-menu-btn {
     display: none;
     background: none;
@@ -102,28 +74,95 @@ function isActive(href: string) {
     font-size: 1.5em;
     color: var(--isu-red);
     cursor: pointer;
+    padding: 10px;
   }
-  @media (min-width: 768px) {
-    .logo-text {
-      display: inline;
-    }
+
+  .desktop-nav {
+    display: flex;
+    gap: 8px;
   }
+
+  .desktop-nav a {
+    padding: 10px 16px;
+    color: var(--text-medium);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 4px;
+  }
+
+  .desktop-nav a:hover {
+    color: var(--isu-red);
+    background: rgba(196, 30, 58, 0.05);
+  }
+
+  .desktop-nav a.active {
+    color: var(--isu-red);
+    border-bottom: 3px solid var(--isu-gold);
+    font-weight: 600;
+  }
+
+  /* Mobile styles */
   @media (max-width: 768px) {
-    .desktop-nav {
+    .logo-text {
       display: none;
     }
-    
+
     .mobile-menu-btn {
       display: block;
     }
+
+    .desktop-nav {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .desktop-nav.open {
+      display: flex;
+    }
+
+    .desktop-nav a {
+      padding: 15px 30px;
+      border-radius: 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .desktop-nav a.active {
+      border-bottom: 1px solid var(--isu-gold);
+      background: rgba(196, 30, 58, 0.05);
+    }
   }
 </style>
+
 <script>
-  // Mobile menu toggle functionality
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const nav = document.querySelector('.desktop-nav');
-  
-  menuBtn?.addEventListener('click', () => {
-    nav?.classList.toggle('mobile-open');
-  });
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // Close menu when clicking a link
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('open');
+      }
+    });
+  }
 </script>
