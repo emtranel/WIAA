@@ -32,74 +32,37 @@ const { title, chapter, lesson } = content.frontmatter;
 <style>
   .lesson-container {
     max-width: 1400px;
-    margin: 30px auto;
-    padding: 0 15px;
+    margin: 20px auto;    /* Mobile spacing */
+    padding: 0 15px;      /* Mobile padding */
     width: 100%;
   }
 
   .lesson-layout {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    align-items: start;
+    grid-template-columns: 1fr;  /* Single column mobile */
+    gap: 16px;
   }
 
-  .content-area {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    min-height: auto;
-  }
+  /* Only breakpoints, NO .content-area styling */
+  /* Everything else comes from global.css */
 
-  .content-header {
-    border-bottom: 2px solid var(--isu-gold);
-    padding-bottom: 16px;
-    margin-bottom: 24px;
-  }
-
-  .chapter-label {
-    color: var(--text-light);
-    font-size: 0.8em;
-    margin-bottom: 6px;
-  }
-
-  .content-header h1 {
-    font-size: 1.4em;
-    color: var(--isu-red);
-    margin: 0;
-  }
-
-  /* Tablet screens */
   @media (min-width: 768px) {
     .lesson-container {
+      margin: 25px auto;
       padding: 0 20px;
     }
-
-    .content-area {
-      padding: 28px;
-    }
-
-    .content-header h1 {
-      font-size: 1.7em;
+    .lesson-layout {
+      gap: 20px;
     }
   }
 
-  /* Desktop screens */
   @media (min-width: 969px) {
+    .lesson-container {
+      margin: 30px auto;
+    }
     .lesson-layout {
       grid-template-columns: 250px 1fr;
       gap: 24px;
-    }
-
-    .content-area {
-      padding: 40px;
-      min-height: 650px;
-    }
-
-    .content-header h1 {
-      font-size: 2em;
     }
   }
 </style>
