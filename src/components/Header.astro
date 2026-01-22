@@ -4,7 +4,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="navbar">
   <div class="nav-container">
-    <a href="/" class="logo-link">
+    <a href="/WIAA/" class="logo-link">
       <div class="logo-icon">WIAA</div>
       <span class="logo-text">Workforce in Agriculture and AI</span>
     </a>
@@ -14,10 +14,10 @@ const currentPath = Astro.url.pathname;
     </button>
     
     <nav class="desktop-nav" id="nav-menu">
-      <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
-      <a href="/drones" class={currentPath.startsWith('/drones') ? 'active' : ''}>Drone program</a>
-      <a href="/rovers" class={currentPath.startsWith('/rovers') ? 'active' : ''}>Rover program</a>
-      <a href="/outreach" class={currentPath === '/outreach' ? 'active' : ''}>Outreach</a>
+      <a href="/WIAA" class={currentPath === '/' ? 'active' : ''}>Home</a>
+      <a href="/WIAA/drones" class={currentPath.startsWith('/drones') ? 'active' : ''}>Drone program</a>
+      <a href="/WIAA/rovers" class={currentPath.startsWith('/rovers') ? 'active' : ''}>Rover program</a>
+      <a href="/WIAA/outreach" class={currentPath === '/outreach' ? 'active' : ''}>Outreach</a>
     </nav>
   </div>
 </header>
