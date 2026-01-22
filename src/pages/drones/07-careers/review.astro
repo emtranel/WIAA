@@ -31,40 +31,17 @@ const lesson = 3;
     </div>
   </div>
 </BaseLayout>
-<style>
-  .lesson-container {
-    max-width: 1400px;
-    margin: 20px auto;    /* Mobile spacing */
-    padding: 0 15px;      /* Mobile padding */
-    width: 100%;
+<style is:global>
+  .lesson-content img {
+    max-width: 800px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 20px auto !important;
   }
 
-  .lesson-layout {
-    display: grid;
-    grid-template-columns: 1fr;  /* Single column mobile */
-    gap: 16px;
-  }
-
-  /* Only breakpoints, NO .content-area styling */
-  /* Everything else comes from global.css */
-
-  @media (min-width: 768px) {
-    .lesson-container {
-      margin: 25px auto;
-      padding: 0 20px;
-    }
-    .lesson-layout {
-      gap: 20px;
-    }
-  }
-
-  @media (min-width: 969px) {
-    .lesson-container {
-      margin: 30px auto;
-    }
-    .lesson-layout {
-      grid-template-columns: 250px 1fr;
-      gap: 24px;
+  @media (max-width: 767px) {
+    .lesson-content img {
+      max-width: 280px !important;
     }
   }
 </style>
