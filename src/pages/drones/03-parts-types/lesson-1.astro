@@ -23,22 +23,21 @@ const { title, chapter, lesson } = content.frontmatter;
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
-          <!-- Key Parts Section -->
           <h2>Key Parts</h2>
           <p>Each component plays a critical role in the drone's ability to fly, capture data, and complete agricultural missions successfully.</p>
           
           <!-- Interactive Component Section -->
           <div class="interactive-section">
             <div class="drone-viewer">
-              <img src="/WIAA/images/uav_components.jpg" alt="UAV Components" class="drone-image" id="droneImage" />
+              <img src="/WIAA/images/uav_components.jpg" alt="UAV Components" />
               <div class="component-buttons">
-                <button class="component-btn" data-component="frame" title="Click to learn about Frame">Frame</button>
-                <button class="component-btn" data-component="motors" title="Click to learn about Motors">Motors</button>
-                <button class="component-btn" data-component="propellers" title="Click to learn about Propellers">Propellers</button>
-                <button class="component-btn" data-component="battery" title="Click to learn about Battery">Battery</button>
-                <button class="component-btn" data-component="gimbal" title="Click to learn about Gimbal">Gimbal</button>
-                <button class="component-btn" data-component="sensor" title="Click to learn about Sensor/Camera">Sensor</button>
-                <button class="component-btn" data-component="controller" title="Click to learn about Remote Controller">Remote Controller</button>
+                <button class="component-btn" data-component="frame">Frame</button>
+                <button class="component-btn" data-component="motors">Motors</button>
+                <button class="component-btn" data-component="propellers">Propellers</button>
+                <button class="component-btn" data-component="battery">Battery</button>
+                <button class="component-btn" data-component="gimbal">Gimbal</button>
+                <button class="component-btn" data-component="sensor">Sensor</button>
+                <button class="component-btn" data-component="controller">Remote Controller</button>
               </div>
             </div>
             
@@ -51,14 +50,8 @@ const { title, chapter, lesson } = content.frontmatter;
 
           <!-- Learning Activities Section -->
           <h2>Learning Activities</h2>
-          <div class="learning-activities">
-            <div class="activity-item">
-              <strong>Build a drone from kit</strong>
-            </div>
-            <div class="activity-item">
-              <strong>Identify drone components and their functions</strong>
-            </div>
-          </div>
+          <p><strong>Build a drone from kit</strong></p>
+          <p><strong>Identify drone components and their functions</strong></p>
         </article>
         <LessonNav 
           prev={{ href: '/drones/02-introduction/review', label: 'Previous' }}
@@ -92,7 +85,7 @@ const { title, chapter, lesson } = content.frontmatter;
     margin-top: 0;
   }
 
-  .lesson-content h2 + p {
+  .lesson-content h2:first-of-type + p {
     font-size: 1.1em;
     line-height: 1.8;
     color: var(--text-secondary);
@@ -120,7 +113,7 @@ const { title, chapter, lesson } = content.frontmatter;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   }
 
-  .drone-image {
+  .drone-viewer img {
     display: block;
     width: 100%;
     height: auto;
@@ -199,25 +192,23 @@ const { title, chapter, lesson } = content.frontmatter;
     font-style: italic;
   }
 
-  /* Learning Activities */
-  .learning-activities {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 28px 0;
+  /* Learning Activities - Plain Text */
+  .lesson-content h2:last-of-type {
+    margin-top: 60px;
   }
 
-  .activity-item {
+  .lesson-content h2:last-of-type + p {
     font-size: 1.05em;
     line-height: 1.7;
     color: var(--text-primary);
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 16px 0;
   }
 
-  .activity-item strong {
-    display: block;
-    color: var(--isu-red);
-    font-weight: 700;
-    margin-bottom: 4px;
+  .lesson-content h2:last-of-type + p strong {
+    color: var(--text-primary);
   }
 
   /* Tab Buttons */
@@ -309,31 +300,31 @@ const { title, chapter, lesson } = content.frontmatter;
   const components = {
     frame: {
       title: 'Frame',
-      description: 'The structural skeleton of the drone. It holds all components together, provides rigidity, and must be lightweight yet strong enough to support the entire system.'
+      description: 'Structure of the drone'
     },
     motors: {
       title: 'Motors',
-      description: 'Electric motors that spin the propellers. They convert electrical energy from the battery into rotational motion, allowing the drone to generate thrust and achieve flight.'
+      description: 'Spins the propellers'
     },
     propellers: {
       title: 'Propellers',
-      description: 'The rotating blades that create lift by pushing air downward. Different propeller designs affect speed, efficiency, and flight characteristics of the drone.'
+      description: 'Create lift'
     },
     battery: {
       title: 'Battery',
-      description: 'Powers the entire drone system including motors and all attachments. Battery capacity determines flight time and payload capacity. Typically lithium-polymer (LiPo) batteries are used for their high energy density.'
+      description: 'Powers drone and attachments'
     },
     gimbal: {
       title: 'Gimbal',
-      description: 'A mechanical stabilization system that keeps the camera or sensor level and smooth, even when the drone moves or rotates. This ensures high-quality, shake-free data collection and imagery.'
+      description: 'Stabilizes the sensor'
     },
     sensor: {
       title: 'Sensor/Camera',
-      description: 'Collects visual or spectral data about crops, field conditions, and vegetation. Modern agricultural drones use multispectral or thermal cameras to monitor plant health and identify problem areas.'
+      description: 'Collects data'
     },
     controller: {
       title: 'Remote Controller',
-      description: 'The pilot\'s control device that communicates wirelessly with the drone. It allows manual flight control, mission programming, and real-time monitoring of the drone\'s status and camera feed.'
+      description: 'Pilot\'s control device'
     }
   };
 
@@ -341,20 +332,17 @@ const { title, chapter, lesson } = content.frontmatter;
     const component = components[componentKey];
     const descPanel = document.getElementById('componentDescription');
     
-    // Update active button
     document.querySelectorAll('.component-btn').forEach(btn => {
       btn.classList.remove('active');
     });
     document.querySelector(`[data-component="${componentKey}"]`).classList.add('active');
     
-    // Update description
     descPanel.innerHTML = `
       <h3>${component.title}</h3>
       <p>${component.description}</p>
     `;
   }
 
-  // Add click handlers to buttons
   document.querySelectorAll('.component-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       displayComponent(btn.dataset.component);
