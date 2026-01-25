@@ -23,7 +23,9 @@ const { title, chapter, lesson } = content.frontmatter;
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
-          <Content />
+          <!-- Key Parts Section -->
+          <h2>Key Parts</h2>
+          <p>Each component plays a critical role in the drone's ability to fly, capture data, and complete agricultural missions successfully.</p>
           
           <!-- Interactive Component Section -->
           <div class="interactive-section">
@@ -42,8 +44,19 @@ const { title, chapter, lesson } = content.frontmatter;
             
             <div class="component-panel">
               <div class="component-description" id="componentDescription">
-                <p class="hint-text">Click on a component in the image or button above to learn more</p>
+                <p class="hint-text">Click on a component above to learn more</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Learning Activities Section -->
+          <h2>Learning Activities</h2>
+          <div class="learning-activities">
+            <div class="activity-item">
+              <strong>Build a drone from kit</strong>
+            </div>
+            <div class="activity-item">
+              <strong>Identify drone components and their functions</strong>
             </div>
           </div>
         </article>
@@ -88,10 +101,6 @@ const { title, chapter, lesson } = content.frontmatter;
     border-left: 4px solid var(--isu-red);
     border-radius: 8px;
     margin: 28px 0 40px 0;
-  }
-
-  .lesson-content img {
-    display: none;
   }
 
   /* Interactive Section */
@@ -191,51 +200,24 @@ const { title, chapter, lesson } = content.frontmatter;
   }
 
   /* Learning Activities */
-  .lesson-content h2:last-of-type {
-    margin-top: 60px;
-  }
-
-  .lesson-content h2:last-of-type + ul {
+  .learning-activities {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    list-style: none;
-    padding: 0;
     margin: 28px 0;
   }
 
-  .lesson-content h2:last-of-type + ul li {
-    background: white;
-    border: 1.5px solid var(--border-color);
-    border-radius: 10px;
-    padding: 22px 24px;
-    transition: all 0.3s ease;
-    padding-left: 32px;
-    position: relative;
+  .activity-item {
     font-size: 1.05em;
     line-height: 1.7;
     color: var(--text-primary);
   }
 
-  .lesson-content h2:last-of-type + ul li::before {
-    content: '→';
-    position: absolute;
-    left: 16px;
+  .activity-item strong {
+    display: block;
     color: var(--isu-red);
-    font-weight: bold;
-    font-size: 1.3em;
-    transition: transform 0.3s ease;
-  }
-
-  .lesson-content h2:last-of-type + ul li:hover {
-    border-color: var(--isu-red);
-    background: linear-gradient(135deg, #ffffff 0%, #fffbf7 100%);
-    box-shadow: 0 8px 24px rgba(196, 30, 58, 0.1);
-    transform: translateX(4px);
-  }
-
-  .lesson-content h2:last-of-type + ul li:hover::before {
-    transform: translateX(4px);
+    font-weight: 700;
+    margin-bottom: 4px;
   }
 
   /* Tab Buttons */
