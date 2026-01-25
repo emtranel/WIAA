@@ -23,7 +23,60 @@ const { title, chapter, lesson } = content.frontmatter;
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
-          <Content />
+          <p class="intro-text">Different drone types are suited for different agricultural applications.</p>
+          
+          <div class="drone-types-grid">
+            <div class="drone-card">
+              <h2>Single Rotor (1 rotor)</h2>
+              <ul>
+                <li><strong>Best for:</strong> High payloads</li>
+                <li>Can carry heavier sensors and equipment</li>
+                <li>More efficient for large payloads</li>
+              </ul>
+            </div>
+
+            <div class="drone-card">
+              <h2>Quadcopter (4 rotors)</h2>
+              <ul>
+                <li><strong>Best for:</strong> Mapping fields</li>
+                <li>Most common type for agriculture</li>
+                <li>Good balance of maneuverability and stability</li>
+                <li>Easy to fly and maintain</li>
+              </ul>
+            </div>
+
+            <div class="drone-card">
+              <h2>Hexacopter (6 rotors)</h2>
+              <ul>
+                <li><strong>Best for:</strong> Provides extra lift</li>
+                <li>More stable than quadcopters</li>
+                <li>Can continue flying if one motor fails</li>
+                <li>Better for larger sensors</li>
+              </ul>
+            </div>
+
+            <div class="drone-card">
+              <h2>Fixed Wing (airplane-like)</h2>
+              <ul>
+                <li><strong>Best for:</strong> Large fields and farms</li>
+                <li>Covers more area per flight</li>
+                <li>Longer flight times</li>
+                <li>Requires runway or launch system</li>
+              </ul>
+            </div>
+
+            <div class="drone-card">
+              <h2>Fixed Wing VTOL (airplane-like with vertical takeoff)</h2>
+              <ul>
+                <li><strong>Best for:</strong> Restricted runway space</li>
+                <li>Combines benefits of fixed wing and multirotor</li>
+                <li>Vertical takeoff and landing capability</li>
+                <li>Long-range coverage</li>
+              </ul>
+            </div>
+          </div>
+
+          <img src="/WIAA/images/drone_types.jpg" alt="Drone Types" />
         </article>
         <LessonNav 
           prev={{ href: '/drones/03-parts-types/lesson-1', label: 'Previous' }}
@@ -44,7 +97,7 @@ const { title, chapter, lesson } = content.frontmatter;
     --border-color: #e5e7eb;
   }
 
-  .lesson-content > p:first-of-type {
+  .lesson-content .intro-text {
     font-size: 1.1em;
     line-height: 1.8;
     color: var(--text-secondary);
@@ -55,98 +108,90 @@ const { title, chapter, lesson } = content.frontmatter;
     margin: 28px 0 50px 0;
   }
 
-  /* Grid container for drone type cards */
-  .lesson-content {
+  /* Drone Types Grid */
+  .drone-types-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 28px;
-    align-items: start;
+    margin: 40px 0;
   }
 
-  .lesson-content > p:first-of-type {
-    grid-column: 1 / -1;
-  }
-
-  .lesson-content img {
-    grid-column: 1 / -1;
-  }
-
-  .lesson-content h2 {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: white;
-    margin-top: 0;
-    margin-bottom: 16px;
-    padding: 16px 20px;
-    border-radius: 8px 8px 0 0;
-    letter-spacing: -0.3px;
-  }
-
-  .lesson-content h2:nth-of-type(1) {
-    background: linear-gradient(135deg, #c41e3a, #a01729);
-  }
-
-  .lesson-content h2:nth-of-type(2) {
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  }
-
-  .lesson-content h2:nth-of-type(3) {
-    background: linear-gradient(135deg, #7c3aed, #6d28d9);
-  }
-
-  .lesson-content h2:nth-of-type(4) {
-    background: linear-gradient(135deg, #059669, #047857);
-  }
-
-  .lesson-content h2:nth-of-type(5) {
-    background: linear-gradient(135deg, #d97706, #b45309);
-  }
-
-  /* Drone type sections - cards */
-  .lesson-content h2 + ul {
+  .drone-card {
+    display: flex;
+    flex-direction: column;
     background: white;
     border: 1.5px solid var(--border-color);
-    border-radius: 0 0 8px 8px;
-    padding: 24px;
-    margin: -16px 0 0 0;
-    list-style: none;
+    border-radius: 12px;
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
   }
 
-  .lesson-content h2 + ul:hover {
+  .drone-card:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     transform: translateY(-4px);
   }
 
-  .lesson-content h2 + ul li {
-    padding: 10px 0;
-    color: var(--text-primary);
-    line-height: 1.7;
+  .drone-card h2 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    padding: 18px 20px;
+    border-radius: 0;
+    letter-spacing: -0.3px;
+  }
+
+  .drone-card:nth-child(1) h2 {
+    background: linear-gradient(135deg, #c41e3a, #a01729);
+  }
+
+  .drone-card:nth-child(2) h2 {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  }
+
+  .drone-card:nth-child(3) h2 {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  }
+
+  .drone-card:nth-child(4) h2 {
+    background: linear-gradient(135deg, #059669, #047857);
+  }
+
+  .drone-card:nth-child(5) h2 {
+    background: linear-gradient(135deg, #d97706, #b45309);
+  }
+
+  .drone-card ul {
+    list-style: none;
+    padding: 24px;
+    margin: 0;
+  }
+
+  .drone-card li {
     font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 12px 0;
+    padding-left: 20px;
+    position: relative;
   }
 
-  .lesson-content h2 + ul li:first-child {
-    font-weight: 600;
-    color: var(--isu-red);
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .lesson-content h2 + ul li::marker {
-    display: none;
-  }
-
-  .lesson-content h2 + ul li::before {
+  .drone-card li::before {
     content: '•';
-    margin-right: 12px;
+    position: absolute;
+    left: 4px;
     color: var(--isu-red);
     font-weight: bold;
   }
 
-  .lesson-content h2 + ul li:first-child::before {
-    display: none;
+  .drone-card li:first-child {
+    margin-top: 0;
+  }
+
+  .drone-card strong {
+    color: var(--isu-red);
+    font-weight: 700;
   }
 
   /* Image */
@@ -193,18 +238,24 @@ const { title, chapter, lesson } = content.frontmatter;
     display: none;
   }
 
-  @media (max-width: 768px) {
-    .lesson-content {
+  @media (max-width: 1024px) {
+    .drone-types-grid {
       grid-template-columns: 1fr;
     }
+  }
 
-    .lesson-content h2 {
-      font-size: 1.2em;
+  @media (max-width: 768px) {
+    .drone-card h2 {
+      font-size: 1.15em;
       padding: 14px 16px;
     }
 
-    .lesson-content h2 + ul {
+    .drone-card ul {
       padding: 20px;
+    }
+
+    .drone-card li {
+      font-size: 0.95em;
     }
 
     .lesson-content img {
