@@ -90,3 +90,12 @@ const { title, chapter, lesson } = content.frontmatter;
     }
   }
 </style>
+<style>
+  @media (max-width: 768px) {
+    div[style*="grid-template-columns"] {
+      display: flex !important;
+      flex-direction: column-reverse !important;
+      gap: 16px !important;
+    }
+  }
+</style>
