@@ -4,95 +4,54 @@ chapter: 2
 lesson: 2
 ---
 
-<div class="lesson-intro">
-  <p>Farmers and agriculturalists have many tasks to complete to grow a successful crop. Some tasks require hand labor or equipment such as tractors. Other tasks can be completed using drones.</p>
-</div>
+Farmers and agriculturalists manage numerous tasks to grow a successful crop. Some require hand labor or traditional equipment like tractors, while others are increasingly suited to drone technology for greater efficiency and precision.
 
-##  How Drones Help Agriculture
+## Why Drones Matter in Agriculture
 
-<p class="section-intro">Drones can be useful for manual tasks such as spreading fertilizers or spraying pesticides. When a drone is equipped with a sensor, the drone system can be useful for a wide variety of crop scouting tasks such as:</p>
+Drones equipped with sensors and cameras enable farmers to perform complex crop management tasks more efficiently and with greater accuracy than traditional methods.
 
-<div class="applications-grid">
-  <div class="application-card">
-    <div class="card-icon"></div>
-    <h4>Detecting pest outbreaks</h4>
-    <p>Identify pest outbreaks before they cause widespread damage.</p>
-  </div>
-  
-  <div class="application-card">
-    <div class="card-icon"></div>
-    <h4>Estimating crop yield</h4>
-    <p>Analyze crop health to predict yields.</p>
-  </div>
-  
-  <div class="application-card">
-    <div class="card-icon"></div>
-    <h4>Field Mapping</h4>
-    <p>Create detailed maps of field conditions to identify variability and potential problems.</p>
-  </div>
-  
-  <div class="application-card">
-    <div class="card-icon"></div>
-    <h4>Plant Health Monitoring</h4>
-    <p>Monitor crop development and stress throughout the growing season</p>
-  </div>
-  
-  <div class="application-card">
-    <div class="card-icon"></div>
-    <h4>Irrigation Management</h4>
-    <p>Identify water stress in the field. </p>
-  </div>
-  
-  <div class="application-card">
-    <div class="card-icon"></div>
-    <h4>Damage Assessment</h4>
-    <p>Assess crop damage from severe weather to support insurance and recovery decisions</p>
-  </div>
-</div>
+### Key Drone Applications
+
+| Application | Purpose |
+|---|---|
+| **Pest Detection** | Quickly identify pest outbreaks across large fields before they cause widespread damage |
+| **Yield Estimation** | Analyze crop health and development to predict yields and optimize harvest timing |
+| **Field Mapping** | Create detailed maps of field conditions to identify variability and problem areas |
+| **Plant Health Monitoring** | Monitor crop development and stress indicators throughout the growing season |
+| **Irrigation Management** | Identify irrigation issues and optimize water distribution for better plant health |
+| **Damage Assessment** | Assess crop damage from storms and severe weather to inform insurance and recovery decisions |
 
 ## Drone Capabilities vs. Traditional Methods
 
-<p class="section-intro">Understanding which tasks drones can perform helps farmers make informed technology decisions.</p>
+Understanding which tasks drones can perform helps farmers make informed technology decisions.
 
-<div class="task-comparison">
-  <div class="task-column">
-    <div class="column-header manual">Manual & Traditional</div>
-    <ul class="task-list">
-      <li>Spreading fertilizers</li>
-      <li>Spraying pesticides</li>
-      <li>Removing off-types</li>
-      <li>Operating tractors</li>
-      <li>Fixing machinery</li>
-      <li>Planting seeds in rows</li>
-    </ul>
-  </div>
-  
-  <div class="task-column">
-    <div class="column-header drone">Drone-Capable Tasks</div>
-    <ul class="task-list">
-      <li>Detecting insect outbreaks</li>
-      <li>Soil texture mapping</li>
-      <li>Detecting water stress</li>
-      <li>Checking plant height</li>
-      <li>Monitoring crop growth</li>
-      <li>Scouting for weeds</li>
-      <li>Measuring soil conditions</li>
-      <li>Estimating crop yield</li>
-      <li>Mapping field terrain</li>
-    </ul>
-  </div>
-</div>
+### Manual & Traditional Tasks
+- Spreading fertilizers
+- Spraying pesticides
+- Removing off-types
+- Operating tractors and combines
+- Fixing machinery
+- Planting seeds in rows
+- Tillage and soil preparation
+
+### Drone-Capable Tasks
+- Detecting insect outbreaks
+- Soil texture mapping
+- Detecting water stress
+- Checking plant height
+- Monitoring crop growth
+- Scouting for weeds
+- Measuring soil compaction
+- Estimating crop yield
+- Mapping field terrain
+- Assessing storm damage
 
 ## Learning Activities
 
-<div class="activities-box">
-  <h4>Tasks of Agriculture Classification Exercise</h4>
-  <p>Categorize farming tasks based on whether they require manual labor, traditional equipment, drones, or a combination of technologies.</p>
-</div>
+**Tasks of Agriculture Classification Exercise**
+Categorize farming tasks based on whether they require manual labor, traditional equipment, drones, or a combination of technologies.
 
-<div class="activities-box">
-  <h4>Drone Technology Application</h4>
-  <p>Identify which agricultural tasks in your region would benefit most from drone technology and explain the advantages for each task.</p>
-</div>
+**Drone Technology Application**
+Identify which agricultural tasks in your region would benefit most from drone technology and explain the advantages for each task.
 
 ![Agricultural Applications](/WIAA/images/ag_apps.jpg)
