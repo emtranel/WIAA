@@ -89,6 +89,187 @@ const { title, chapter, lesson } = content.frontmatter;
     }
   }
   }
+/* Lesson intro - prominent opening statement */
+.lesson-intro {
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+  padding: 20px;
+  border-left: 4px solid var(--isu-red);
+  border-radius: 4px;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+/* Section intro text */
+.section-intro {
+  font-size: 1.05em;
+  color: var(--text-medium);
+  font-style: italic;
+  margin-bottom: 24px;
+  padding: 0 12px;
+}
+
+/* Definitions Grid - Two cards side by side */
+.definitions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.definition-card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.definition-card:hover {
+  box-shadow: 0 4px 16px rgba(196, 30, 58, 0.12);
+  border-color: var(--isu-red);
+}
+
+.definition-card h3 {
+  color: var(--isu-red);
+  font-size: 1.3em;
+  margin-bottom: 6px;
+}
+
+.card-label {
+  color: var(--isu-gold);
+  font-weight: 600;
+  font-size: 0.95em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-description {
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Benefits Grid - Three cards in a row */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.benefit-card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 24px;
+  padding-left: 80px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  box-shadow: 0 4px 16px rgba(196, 30, 58, 0.12);
+  border-color: var(--isu-red);
+}
+
+.benefit-number {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--isu-red), var(--isu-dark-red));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.benefit-card h4 {
+  color: var(--isu-red);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.benefit-card p {
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Impact callout - highlighted section */
+.impact-callout {
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.08) 0%, rgba(255, 184, 28, 0.08) 100%);
+  border-left: 5px solid var(--isu-red);
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.impact-callout h4 {
+  color: var(--isu-red);
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.15em;
+}
+
+.impact-callout p {
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive - Tablet and larger */
+@media (min-width: 768px) {
+  .lesson-intro {
+    padding: 24px;
+    font-size: 1.15em;
+  }
+
+  .definitions-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .definition-card {
+    padding: 28px;
+  }
+
+  .benefit-card {
+    padding: 28px;
+    padding-left: 90px;
+  }
+}
+
+/* Responsive - Desktop */
+@media (min-width: 969px) {
+  .benefits-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .definition-card {
+    padding: 32px;
+  }
+
+  .benefit-card {
+    padding: 32px;
+    padding-left: 100px;
+  }
+}
 </style>
 <style>
   @media (max-width: 768px) {
