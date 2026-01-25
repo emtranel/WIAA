@@ -2,7 +2,6 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
 import LessonNav from '../../../components/LessonNav.astro';
-
 const content = await import('../../../content/drones/03-parts-types/lesson-1.md');
 const { Content } = content;
 const { title, chapter, lesson } = content.frontmatter;
@@ -14,13 +13,13 @@ const { title, chapter, lesson } = content.frontmatter;
       <Sidebar currentChapter={chapter} currentLesson={lesson} />
       <div class="content-area">
         <div class="content-header">
-  <div class="page-header-bar">
-    <div class="tab-buttons">
-      <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
-      <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
-    </div>
-  </div>
-  <p class="chapter-label">Chapter {chapter}: Drone parts & types</p>
+          <div class="page-header-bar">
+            <div class="tab-buttons">
+              <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
+              <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
+            </div>
+          </div>
+          <p class="chapter-label">Chapter {chapter}: Drone parts & types</p>
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
@@ -35,24 +34,215 @@ const { title, chapter, lesson } = content.frontmatter;
     </div>
   </div>
 </BaseLayout>
+
 <style is:global>
+  :root {
+    --isu-red: #c41e3a;
+    --isu-gold: #f8c600;
+    --dark-bg: #0f172a;
+    --card-bg: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --border-color: #e5e7eb;
+    --accent: #c41e3a;
+  }
+
+  .lesson-content h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--isu-red);
+    margin-top: 45px;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-bottom: 14px;
+  }
+
+  .lesson-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .lesson-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--isu-red), var(--isu-gold));
+    border-radius: 2px;
+  }
+
+  /* Key Parts Section */
+  .lesson-content h2:first-of-type + p + ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 40px 0;
+  }
+
+  .lesson-content h2:first-of-type + p + ul li {
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lesson-content h2:first-of-type + p + ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--isu-red), var(--isu-gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .lesson-content h2:first-of-type + p + ul li:hover {
+    transform: translateY(-6px);
+    border-color: var(--isu-red);
+    box-shadow: 0 12px 32px rgba(196, 30, 58, 0.15);
+  }
+
+  .lesson-content h2:first-of-type + p + ul li:hover::before {
+    transform: scaleX(1);
+  }
+
+  .lesson-content h2:first-of-type + p + ul li strong {
+    display: block;
+    color: var(--isu-red);
+    font-weight: 700;
+    font-size: 1.05em;
+    margin-bottom: 8px;
+  }
+
+  .lesson-content h2:first-of-type + p + ul li::marker {
+    display: none;
+  }
+
+  /* Closing paragraph after components */
+  .lesson-content h2:first-of-type + p + ul + p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.04), rgba(248, 198, 0, 0.04));
+    padding: 24px;
+    border-left: 4px solid var(--isu-red);
+    border-radius: 8px;
+    margin: 40px 0;
+  }
+
+  /* Learning Activities Section */
+  .lesson-content h2:last-of-type {
+    margin-top: 50px;
+  }
+
+  .lesson-content h2:last-of-type + ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 28px 0;
+  }
+
+  .lesson-content h2:last-of-type + ul li {
+    background: white;
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    padding: 22px 24px;
+    transition: all 0.3s ease;
+    padding-left: 32px;
+    position: relative;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+
+  .lesson-content h2:last-of-type + ul li::before {
+    content: '→';
+    position: absolute;
+    left: 16px;
+    color: var(--isu-red);
+    font-weight: bold;
+    font-size: 1.3em;
+    transition: transform 0.3s ease;
+  }
+
+  .lesson-content h2:last-of-type + ul li:hover {
+    border-color: var(--isu-red);
+    background: linear-gradient(135deg, #ffffff 0%, #fffbf7 100%);
+    box-shadow: 0 8px 24px rgba(196, 30, 58, 0.1);
+    transform: translateX(4px);
+  }
+
+  .lesson-content h2:last-of-type + ul li:hover::before {
+    transform: translateX(4px);
+  }
+
+  /* Image */
   .lesson-content img {
     max-width: 800px !important;
     height: auto !important;
     display: block !important;
-    margin: 20px auto !important;
+    margin: 50px auto 40px auto !important;
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border-color);
   }
 
-  @media (max-width: 767px) {
-    .lesson-content img {
-      max-width: 280px !important;
-    }
+  /* Tab Buttons */
+  .tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
   }
-.page-header-bar {
+
+  .tab-btn {
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text-medium);
+    font-size: 0.95em;
+  }
+
+  .tab-btn:hover {
+    background: #e8e8e8;
+  }
+
+  .tab-btn.active {
+    background: var(--isu-red);
+    color: white;
+  }
+
+  .page-header-bar {
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
+    .lesson-content h2 {
+      font-size: 1.5em;
+      margin-top: 35px;
+      margin-bottom: 22px;
+    }
+
+    .lesson-content img {
+      max-width: 280px !important;
+    }
+
     .page-header-bar {
       display: block;
       margin-bottom: 20px;
@@ -61,37 +251,13 @@ const { title, chapter, lesson } = content.frontmatter;
     }
 
     .tab-buttons {
-      display: flex;
       flex-direction: column;
-      gap: 10px;
     }
 
-    .tab-btn {
-      padding: 12px 20px;
-      background: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text-medium);
-      font-size: 0.95em;
+    .lesson-content h2:first-of-type + p + ul {
+      grid-template-columns: 1fr;
     }
 
-    .tab-btn:hover {
-      background: #e8e8e8;
-    }
-
-    .tab-btn.active {
-      background: var(--isu-red);
-      color: white;
-    }
-  }
-</style>
-<style>
-  @media (max-width: 768px) {
     div[style*="grid-template-columns"] {
       display: flex !important;
       flex-direction: column-reverse !important;
