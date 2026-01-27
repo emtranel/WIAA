@@ -326,12 +326,12 @@ const { title, chapter, lesson } = content.frontmatter;
   }
 
   .activities-list li::before {
-    content: '•';
+    content: '→';
     position: absolute;
-    left: 4px;
+    left: 0;
     color: var(--isu-red);
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 
   .activities-list a {
@@ -340,6 +340,7 @@ const { title, chapter, lesson } = content.frontmatter;
     font-weight: 600;
     transition: all 0.2s ease;
   }
+
 
   .activities-list a:hover {
     text-decoration: underline;
