@@ -2,7 +2,6 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
 import LessonNav from '../../../components/LessonNav.astro';
-
 const content = await import('../../../content/drones/07-careers/lesson-1.md');
 const { Content } = content;
 const { title, chapter, lesson } = content.frontmatter;
@@ -14,17 +13,67 @@ const { title, chapter, lesson } = content.frontmatter;
       <Sidebar currentChapter={chapter} currentLesson={lesson} />
       <div class="content-area">
         <div class="content-header">
-  <div class="page-header-bar">
-    <div class="tab-buttons">
-      <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
-      <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
-    </div>
-  </div>
-  <p class="chapter-label">Chapter {chapter}: Careers in drones & AI</p>
+          <div class="page-header-bar">
+            <div class="tab-buttons">
+              <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
+              <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
+            </div>
+          </div>
+          <p class="chapter-label">Chapter {chapter}: Careers in drones & AI</p>
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
-          <Content />
+          <h2>The Global Challenge</h2>
+          
+          <div class="challenge-section">
+            <div class="challenge-item">
+              <div class="challenge-icon">📈</div>
+              <h3>World Population is Increasing</h3>
+              <p>More people need more food</p>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-icon">📉</div>
+              <h3>Available Arable Land is Decreasing</h3>
+              <p>Less farmable land available</p>
+            </div>
+          </div>
+
+          <div class="challenge-question">
+            <p><strong>How do we feed a growing population with less farmland?</strong></p>
+          </div>
+
+          <h2>The Solution: You</h2>
+
+          <div class="solution-box">
+            <p>The intersection of professionals in agriculture, AI, and technology represents one of the most important career pathways for the 21st century. Companies across the agricultural technology sector are actively seeking skilled professionals who understand both farming and technology.</p>
+          </div>
+
+          <img src="/WIAA/images/careers_why.jpg" alt="Career Opportunities" />
+
+          <h2>Why This Matters</h2>
+
+          <div class="impact-grid">
+            <div class="impact-card">
+              <div class="impact-icon">💼</div>
+              <h3>Growing Field = Job Security</h3>
+              <p>The agricultural tech sector is expanding rapidly, creating abundant career opportunities</p>
+            </div>
+            <div class="impact-card">
+              <div class="impact-icon">💰</div>
+              <h3>Competitive Salaries</h3>
+              <p>Skilled professionals in this field earn competitive and attractive compensation</p>
+            </div>
+            <div class="impact-card">
+              <div class="impact-icon">🌍</div>
+              <h3>Solve Real-World Problems</h3>
+              <p>Work on challenges that directly impact food production and sustainability</p>
+            </div>
+            <div class="impact-card">
+              <div class="impact-icon">🌱</div>
+              <h3>Make a Meaningful Impact</h3>
+              <p>Contribute to global food security and help feed billions of people</p>
+            </div>
+          </div>
         </article>
         <LessonNav 
           prev={{ href: '/drones/06-faa-safety/review', label: 'Previous' }}
@@ -35,24 +84,282 @@ const { title, chapter, lesson } = content.frontmatter;
     </div>
   </div>
 </BaseLayout>
+
 <style is:global>
-  .lesson-content img {
-    max-width: 800px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 20px auto !important;
+  :root {
+    --isu-red: #c41e3a;
+    --isu-gold: #f8c600;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --border-color: #e5e7eb;
   }
 
-  @media (max-width: 767px) {
-    .lesson-content img {
-      max-width: 280px !important;
-    }
+  .lesson-content h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--isu-red);
+    margin: 45px 0 28px 0;
+    letter-spacing: -0.5px;
   }
-.page-header-bar {
+
+  .lesson-content > p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 20px 0;
+  }
+
+  /* Challenge Section */
+  .challenge-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0 40px 0;
+  }
+
+  .challenge-item {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .challenge-item:hover {
+    border-color: var(--isu-red);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  .challenge-icon {
+    font-size: 3em;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .challenge-item h3 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--isu-red);
+    margin: 0 0 12px 0;
+  }
+
+  .challenge-item p {
+    margin: 0;
+    font-size: 1.05em;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Challenge Question */
+  .challenge-question {
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.08), rgba(248, 198, 0, 0.08));
+    border-left: 5px solid var(--isu-red);
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin: 32px 0 50px 0;
+  }
+
+  .challenge-question p {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--isu-red);
+    line-height: 1.7;
+  }
+
+  /* Solution Box */
+  .solution-box {
+    background: white;
+    border: 2px solid var(--isu-red);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 28px 0 50px 0;
+  }
+
+  .solution-box p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .solution-box strong {
+    color: var(--isu-red);
+    font-weight: 700;
+  }
+
+  /* Image */
+  .lesson-content img {
+    max-width: 900px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 50px auto 50px auto !important;
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border-color);
+  }
+
+  /* Impact Grid */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+  }
+
+  .impact-card {
+    background: white;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .impact-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    border-color: var(--isu-red);
+  }
+
+  .impact-icon {
+    font-size: 3.5em;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .impact-card h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--isu-red);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.3px;
+  }
+
+  .impact-card p {
+    margin: 0;
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  /* Tab Buttons */
+  .tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.95em;
+  }
+
+  .tab-btn:hover {
+    background: #e8e8e8;
+  }
+
+  .tab-btn.active {
+    background: var(--isu-red);
+    color: white;
+  }
+
+  .page-header-bar {
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
+    .challenge-section {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lesson-content h2 {
+      font-size: 1.5em;
+      margin: 35px 0 24px 0;
+    }
+
+    .challenge-section {
+      gap: 16px;
+      margin: 24px 0 32px 0;
+    }
+
+    .challenge-item {
+      padding: 24px 20px;
+    }
+
+    .challenge-icon {
+      font-size: 2.5em;
+      margin-bottom: 12px;
+    }
+
+    .challenge-item h3 {
+      font-size: 1.1em;
+    }
+
+    .challenge-item p {
+      font-size: 0.95em;
+    }
+
+    .challenge-question {
+      padding: 20px 24px;
+      margin: 28px 0 40px 0;
+    }
+
+    .challenge-question p {
+      font-size: 1.05em;
+    }
+
+    .solution-box {
+      padding: 24px;
+      margin: 24px 0 40px 0;
+    }
+
+    .solution-box p {
+      font-size: 1em;
+    }
+
+    .impact-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .impact-card {
+      padding: 20px 18px;
+    }
+
+    .impact-icon {
+      font-size: 2.8em;
+      margin-bottom: 12px;
+    }
+
+    .impact-card h3 {
+      font-size: 1.1em;
+    }
+
+    .impact-card p {
+      font-size: 0.95em;
+    }
+
+    .lesson-content img {
+      max-width: 100% !important;
+      margin: 40px auto 40px auto !important;
+    }
+
     .page-header-bar {
       display: block;
       margin-bottom: 20px;
@@ -61,37 +368,9 @@ const { title, chapter, lesson } = content.frontmatter;
     }
 
     .tab-buttons {
-      display: flex;
       flex-direction: column;
-      gap: 10px;
     }
 
-    .tab-btn {
-      padding: 12px 20px;
-      background: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text-medium);
-      font-size: 0.95em;
-    }
-
-    .tab-btn:hover {
-      background: #e8e8e8;
-    }
-
-    .tab-btn.active {
-      background: var(--isu-red);
-      color: white;
-    }
-  }
-</style>
-<style>
-  @media (max-width: 768px) {
     div[style*="grid-template-columns"] {
       display: flex !important;
       flex-direction: column-reverse !important;
