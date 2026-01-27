@@ -50,8 +50,10 @@ const { title, chapter, lesson } = content.frontmatter;
 
           <!-- Learning Activities Section -->
           <h2>Learning Activities</h2>
-          <p><strong>Build a drone from kit</strong></p>
-          <p><strong>Identify drone components and their functions</strong></p>
+		<ul class="activities-list">
+		  <li>Build a drone from kit</li>
+		  <li>Identify drone components and their functions</li>
+		</ul>
         </article>
         <LessonNav 
           prev={{ href: '/drones/02-introduction/review', label: 'Previous' }}
@@ -192,23 +194,38 @@ const { title, chapter, lesson } = content.frontmatter;
     font-style: italic;
   }
 
-  /* Learning Activities - Plain Text */
-  .lesson-content h2:last-of-type {
-    margin-top: 60px;
-  }
+ /* Learning Activities */
+.activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
 
-  .lesson-content h2:last-of-type + p {
-    font-size: 1.05em;
-    line-height: 1.7;
-    color: var(--text-primary);
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 16px 0;
-  }
+.activities-list li {
+  font-size: 1.05em;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin: 14px 0;
+  padding-left: 24px;
+  position: relative;
+}
 
-  .lesson-content h2:last-of-type + p strong {
-    color: var(--text-primary);
+.activities-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--isu-red);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.activities-list a {
+  color: var(--isu-red);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
   }
 
   /* Tab Buttons */

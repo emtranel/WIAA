@@ -247,12 +247,19 @@ const { title, chapter, lesson } = content.frontmatter;
   }
 
   .activities-list li::before {
-    content: '•';
+    content: '→';
     position: absolute;
-    left: 4px;
+    left: 0;
     color: var(--isu-red);
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.2em;
+  }
+
+  .activities-list a {
+    color: var(--isu-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
   }
 
   /* Image */
