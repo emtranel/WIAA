@@ -2,7 +2,6 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
 import LessonNav from '../../../components/LessonNav.astro';
-
 const content = await import('../../../content/drones/05-ai-agriculture/lesson-2.md');
 const { Content } = content;
 const { title, chapter, lesson } = content.frontmatter;
@@ -14,45 +13,336 @@ const { title, chapter, lesson } = content.frontmatter;
       <Sidebar currentChapter={chapter} currentLesson={lesson} />
       <div class="content-area">
         <div class="content-header">
-  <div class="page-header-bar">
-    <div class="tab-buttons">
-      <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
-      <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
-    </div>
-  </div>
-  <p class="chapter-label">Chapter {chapter}: AI in agriculture</p>
+          <div class="page-header-bar">
+            <div class="tab-buttons">
+              <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
+              <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
+            </div>
+          </div>
+          <p class="chapter-label">Chapter {chapter}: AI in agriculture</p>
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
           <Content />
         </article>
+        </article>
         <LessonNav 
           prev={{ href: '/drones/05-ai-agriculture/lesson-1', label: 'Previous' }}
-          next={{ href: '/drones/05-ai-agriculture/lesson-3', label: 'Next' }}
+          next={{ href: '/drones/05-ai-agriculture/review', label: 'Next' }}
           progress={`${chapter}.${lesson} / 7 Chapters`}
         />
       </div>
     </div>
   </div>
 </BaseLayout>
+
 <style is:global>
-  .lesson-content img {
-    max-width: 800px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 20px auto !important;
+  :root {
+    --isu-red: #c41e3a;
+    --isu-gold: #f8c600;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --border-color: #e5e7eb;
   }
 
-  @media (max-width: 767px) {
-    .lesson-content img {
-      max-width: 280px !important;
-    }
+  .lesson-content .intro-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.04), rgba(248, 198, 0, 0.04));
+    padding: 24px;
+    border-left: 4px solid var(--isu-red);
+    border-radius: 8px;
+    margin: 28px 0 45px 0;
   }
-.page-header-bar {
+
+  .lesson-content h2:nth-of-type(1),
+  .lesson-content h2:nth-of-type(2),
+  .lesson-content h2:nth-of-type(3),
+  .lesson-content h2:nth-of-type(4),
+  .lesson-content h2:nth-of-type(5) {
+    background: linear-gradient(135deg, #c41e3a, #a01729);
+    color: white;
+    padding: 20px 24px;
+    margin: 24px 0 0 0;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .lesson-content h2:nth-of-type(1):hover,
+  .lesson-content h2:nth-of-type(2):hover,
+  .lesson-content h2:nth-of-type(3):hover,
+  .lesson-content h2:nth-of-type(4):hover,
+  .lesson-content h2:nth-of-type(5):hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .lesson-content h2:nth-of-type(1) + ul,
+  .lesson-content h2:nth-of-type(2) + ul,
+  .lesson-content h2:nth-of-type(3) + ul,
+  .lesson-content h2:nth-of-type(4) + ul,
+  .lesson-content h2:nth-of-type(5) + ul {
+    background: white;
+    border: 1.5px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 0 24px;
+    margin: 0 0 30px 0;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .lesson-content h2:nth-of-type(1).active + ul,
+  .lesson-content h2:nth-of-type(2).active + ul,
+  .lesson-content h2:nth-of-type(3).active + ul,
+  .lesson-content h2:nth-of-type(4).active + ul,
+  .lesson-content h2:nth-of-type(5).active + ul {
+    max-height: 500px;
+    padding: 24px;
+  }
+
+  .lesson-content h2:nth-of-type(1) + ul li,
+  .lesson-content h2:nth-of-type(2) + ul li,
+  .lesson-content h2:nth-of-type(3) + ul li,
+  .lesson-content h2:nth-of-type(4) + ul li,
+  .lesson-content h2:nth-of-type(5) + ul li {
+    margin: 12px 0;
+    padding-left: 0;
+    font-size: 1.05em;
+    line-height: 1.7;
+  }
+
+  .lesson-content h2:nth-of-type(1) + ul li:first-child,
+  .lesson-content h2:nth-of-type(2) + ul li:first-child,
+  .lesson-content h2:nth-of-type(3) + ul li:first-child,
+  .lesson-content h2:nth-of-type(4) + ul li:first-child,
+  .lesson-content h2:nth-of-type(5) + ul li:first-child {
+    margin-top: 0;
+  }
+
+  .lesson-content h2:nth-of-type(n+6) {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--isu-red);
+    margin: 45px 0 28px 0;
+    letter-spacing: -0.5px;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    cursor: auto;
+  }
+
+  .lesson-content > p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 20px 0;
+  }
+
+  /* Models Grid */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 32px 0 50px 0;
+  }
+
+  .model-card {
+    background: white;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    text-align: left;
+  }
+
+  .model-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: var(--isu-red);
+  }
+
+  .model-header {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #c41e3a, #a01729);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .model-header h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.3px;
+    color: white;
+  }
+
+  .expand-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .model-card.active .expand-icon {
+    transform: rotate(45deg);
+  }
+
+  .model-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .model-card.active .model-body {
+    max-height: 300px;
+  }
+
+  .model-details {
+    padding: 24px;
+    background: white;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .model-details p {
+    margin: 12px 0;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+
+  .model-details p:first-child {
+    margin-top: 0;
+  }
+
+  .model-details p:last-child {
+    margin-bottom: 0;
+  }
+
+  .model-details strong {
+    color: var(--isu-red);
+    font-weight: 700;
+  }
+
+  /* Learning Activities */
+  .activities-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+  }
+
+  .activities-list li {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 14px 0;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .activities-list li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: var(--isu-red);
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  /* Image */
+  .lesson-content img {
+    max-width: 900px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 50px auto 40px auto !important;
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border-color);
+  }
+
+  /* Tab Buttons */
+  .tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.95em;
+  }
+
+  .tab-btn:hover {
+    background: #e8e8e8;
+  }
+
+  .tab-btn.active {
+    background: var(--isu-red);
+    color: white;
+  }
+
+  .page-header-bar {
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
+    .lesson-content h2 {
+      font-size: 1.5em;
+      margin: 35px 0 24px 0;
+    }
+
+    .models-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 28px 0 40px 0;
+    }
+
+    .model-header {
+      padding: 16px 18px;
+    }
+
+    .model-header h3 {
+      font-size: 1.1em;
+    }
+
+    .model-details {
+      padding: 18px;
+    }
+
+    .model-details p {
+      font-size: 0.95em;
+    }
+
+    .lesson-content img {
+      max-width: 100% !important;
+      margin: 40px auto 30px auto !important;
+    }
+
     .page-header-bar {
       display: block;
       margin-bottom: 20px;
@@ -61,37 +351,9 @@ const { title, chapter, lesson } = content.frontmatter;
     }
 
     .tab-buttons {
-      display: flex;
       flex-direction: column;
-      gap: 10px;
     }
 
-    .tab-btn {
-      padding: 12px 20px;
-      background: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text-medium);
-      font-size: 0.95em;
-    }
-
-    .tab-btn:hover {
-      background: #e8e8e8;
-    }
-
-    .tab-btn.active {
-      background: var(--isu-red);
-      color: white;
-    }
-  }
-</style>
-<style>
-  @media (max-width: 768px) {
     div[style*="grid-template-columns"] {
       display: flex !important;
       flex-direction: column-reverse !important;
@@ -99,3 +361,37 @@ const { title, chapter, lesson } = content.frontmatter;
     }
   }
 </style>
+
+<script>
+  // Get all h2 elements in lesson-content
+  const h2Headers = document.querySelectorAll('.lesson-content h2');
+  
+  // Only add click handlers to the first 5 h2s (model types)
+  h2Headers.forEach((header, index) => {
+    if (index < 5) {
+      header.style.cursor = 'pointer';
+      header.style.display = 'flex';
+      header.style.justifyContent = 'space-between';
+      header.style.alignItems = 'center';
+      
+      // Add expand icon if not present
+      if (!header.querySelector('.expand-icon')) {
+        const icon = document.createElement('span');
+        icon.className = 'expand-icon';
+        icon.textContent = '+';
+        icon.style.fontSize = '1.5em';
+        icon.style.fontWeight = 'bold';
+        icon.style.transition = 'transform 0.3s ease';
+        header.appendChild(icon);
+      }
+      
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const icon = header.querySelector('.expand-icon');
+        if (icon) {
+          icon.style.transform = header.classList.contains('active') ? 'rotate(45deg)' : 'rotate(0deg)';
+        }
+      });
+    }
+  });
+</script>
