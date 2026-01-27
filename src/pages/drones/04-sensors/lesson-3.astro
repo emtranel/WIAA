@@ -2,7 +2,6 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Sidebar from '../../../components/Sidebar.astro';
 import LessonNav from '../../../components/LessonNav.astro';
-
 const content = await import('../../../content/drones/04-sensors/lesson-3.md');
 const { Content } = content;
 const { title, chapter, lesson } = content.frontmatter;
@@ -14,17 +13,56 @@ const { title, chapter, lesson } = content.frontmatter;
       <Sidebar currentChapter={chapter} currentLesson={lesson} />
       <div class="content-area">
         <div class="content-header">
-  <div class="page-header-bar">
-    <div class="tab-buttons">
-      <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
-      <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
-    </div>
-  </div>
-  <p class="chapter-label">Chapter {chapter}: Sensors & data collection</p>
+          <div class="page-header-bar">
+            <div class="tab-buttons">
+              <a href="/WIAA/drones" class="tab-btn active">Learning Module</a>
+              <a href="/WIAA/drones/instructor" class="tab-btn">Instructor Resources</a>
+            </div>
+          </div>
+          <p class="chapter-label">Chapter {chapter}: Sensors & data collection</p>
           <h1>{title}</h1>
         </div>
         <article class="lesson-content">
-          <Content />
+          <p class="intro-text">NDVI is one of many vegetation index formulas that use specific reflectance values that can be used to determine plant health. NDVI stands for: <strong>Normalized Difference Vegetation Index</strong>.</p>
+          
+          <h2>NDVI Formula</h2>
+          <div class="formula-box">
+            <div class="formula">NDVI = <span class="fraction"><span class="numerator">NIR - Red</span><span class="denominator">NIR + Red</span></span></div>
+          </div>
+
+          <h2>Interpreting NDVI</h2>
+          <p>Once calculated:</p>
+          <ul class="interpretation-list">
+            <li>A <strong>high NDVI</strong> signals healthy plants</li>
+            <li>A <strong>low NDVI</strong> signals stressed plants</li>
+            <li>A <strong>very low NDVI</strong> value indicates no plants are present and is a sign of bare soil</li>
+          </ul>
+
+          <p class="range-intro">NDVI values typically range from -1 to +1:</p>
+          
+          <!-- NDVI Color Scale -->
+          <div class="ndvi-scale">
+            <div class="scale-item very-healthy">
+              <div class="scale-label"><strong>0.6 to 0.9:</strong> Very healthy vegetation</div>
+            </div>
+            <div class="scale-item moderate">
+              <div class="scale-label"><strong>0.3 to 0.6:</strong> Moderate vegetation</div>
+            </div>
+            <div class="scale-item stressed">
+              <div class="scale-label"><strong>0.1 to 0.3:</strong> Stressed vegetation</div>
+            </div>
+            <div class="scale-item bare-soil">
+              <div class="scale-label"><strong>Below 0.1:</strong> Bare soil or no vegetation</div>
+            </div>
+          </div>
+
+          <h2>Learning Activities</h2>
+          <ul class="activities-list">
+            <li>NDVI puzzle activity</li>
+            <li>Calculate NDVI from sample reflectance data</li>
+          </ul>
+
+          <img src="/WIAA/images/ndvi.jpg" alt="NDVI Visualization" />
         </article>
         <LessonNav 
           prev={{ href: '/drones/04-sensors/lesson-2', label: 'Previous' }}
@@ -35,24 +73,262 @@ const { title, chapter, lesson } = content.frontmatter;
     </div>
   </div>
 </BaseLayout>
+
 <style is:global>
-  .lesson-content img {
-    max-width: 800px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 20px auto !important;
+  :root {
+    --isu-red: #c41e3a;
+    --isu-gold: #f8c600;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --border-color: #e5e7eb;
   }
 
-  @media (max-width: 767px) {
-    .lesson-content img {
-      max-width: 280px !important;
-    }
+  .lesson-content .intro-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.04), rgba(248, 198, 0, 0.04));
+    padding: 24px;
+    border-left: 4px solid var(--isu-red);
+    border-radius: 8px;
+    margin: 28px 0 45px 0;
   }
-.page-header-bar {
+
+  .lesson-content h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--isu-red);
+    margin: 45px 0 28px 0;
+    letter-spacing: -0.5px;
+  }
+
+  .lesson-content > p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 20px 0;
+  }
+
+  /* Formula Box */
+  .formula-box {
+    background: white;
+    border: 2px solid var(--isu-red);
+    border-radius: 10px;
+    padding: 40px;
+    margin: 32px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formula {
+    font-size: 1.8em;
+    font-style: italic;
+    color: var(--text-primary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 12px;
+  }
+
+  .numerator {
+    display: block;
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 8px;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.95em;
+  }
+
+  .denominator {
+    display: block;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.95em;
+  }
+
+  /* Interpretation List */
+  .interpretation-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px 0;
+  }
+
+  .interpretation-list li {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 14px 0;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .interpretation-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--isu-red);
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .range-intro {
+    font-weight: 600;
+    margin-top: 32px !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* NDVI Scale */
+  .ndvi-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 28px 0 50px 0;
+  }
+
+  .scale-item {
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .scale-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .scale-item.very-healthy {
+    background: linear-gradient(90deg, #dcfce7, #86efac);
+    color: #166534;
+  }
+
+  .scale-item.moderate {
+    background: linear-gradient(90deg, #fef3c7, #fcd34d);
+    color: #92400e;
+  }
+
+  .scale-item.stressed {
+    background: linear-gradient(90deg, #fee2e2, #fca5a5);
+    color: #7f1d1d;
+  }
+
+  .scale-item.bare-soil {
+    background: linear-gradient(90deg, #e5e7eb, #d1d5db);
+    color: #374151;
+  }
+
+  .scale-label {
+    margin: 0;
+  }
+
+  /* Learning Activities */
+  .activities-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+  }
+
+  .activities-list li {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 14px 0;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .activities-list li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: var(--isu-red);
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  /* Image */
+  .lesson-content img {
+    max-width: 900px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 50px auto 40px auto !important;
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border-color);
+  }
+
+  /* Tab Buttons */
+  .tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.95em;
+  }
+
+  .tab-btn:hover {
+    background: #e8e8e8;
+  }
+
+  .tab-btn.active {
+    background: var(--isu-red);
+    color: white;
+  }
+
+  .page-header-bar {
     display: none;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
+    .lesson-content h2 {
+      font-size: 1.5em;
+      margin: 35px 0 24px 0;
+    }
+
+    .formula-box {
+      padding: 28px;
+      margin: 28px 0 40px 0;
+    }
+
+    .formula {
+      font-size: 1.4em;
+    }
+
+    .ndvi-scale {
+      gap: 10px;
+      margin: 24px 0 40px 0;
+    }
+
+    .scale-item {
+      padding: 16px 18px;
+      font-size: 0.95em;
+    }
+
+    .lesson-content img {
+      max-width: 100% !important;
+      margin: 40px auto 30px auto !important;
+    }
+
     .page-header-bar {
       display: block;
       margin-bottom: 20px;
@@ -61,37 +337,9 @@ const { title, chapter, lesson } = content.frontmatter;
     }
 
     .tab-buttons {
-      display: flex;
       flex-direction: column;
-      gap: 10px;
     }
 
-    .tab-btn {
-      padding: 12px 20px;
-      background: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text-medium);
-      font-size: 0.95em;
-    }
-
-    .tab-btn:hover {
-      background: #e8e8e8;
-    }
-
-    .tab-btn.active {
-      background: var(--isu-red);
-      color: white;
-    }
-  }
-</style>
-<style>
-  @media (max-width: 768px) {
     div[style*="grid-template-columns"] {
       display: flex !important;
       flex-direction: column-reverse !important;
